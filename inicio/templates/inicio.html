@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+
+{% block titulo %} Inicio - Caminos y Horizontes {% endblock %}
+
+
+{% block contenido %}
+
+
+				<aside class="widget widget_text">
+					<div class="textwidget">
+						<div class="widget_content">
+							<h4>Pellentesque habitant morbi tristique senectus et ac
+								turpis egestas?</h4>
+							<p>
+								Quisque gravida bibendum massa non vulputate. Ut in diam sem,
+								nec venenatis lacus. Proin<br />faucibus urna in mi faucibus
+								commodo.
+							</p>
+							<a href="#" class="more">Leer mas</a>
+						</div>
+					</div>
+				</aside>
+
+			
+
+
+
+				<aside class="widget widget_text">
+					<h3 class="widget-title">Ultimas publicaciones</h3>
+					<div class="textwidget">
+						<div id="home_preview">
+							<div class="view_more">
+								<a href="/publicaciones/lista/">ver todas</a>
+							</div>
+
+
+                       {% for dato in publicaciones %}
+
+							<div class="home_preview">
+								<img src="media/{{dato.foto}}" alt="home photo" />
+								<div class="home_info">
+									<a href="/publicaciones/{{dato.id}}"><h4>{{dato.titulo | title}}</h4></a>
+									<ul>
+										<li>{{dato.autores.nombre}} {{dato.autores.apellido | title}}</li>
+										<li>{{dato.categoria.area.nombre | capfirst}}</li>
+										<li>{{dato.categoria.nombre | capfirst}}</li>
+									</ul>
+								</div>
+								<div class="home_footer">
+									<a class="sale" href="#">Lecturas<span class="home_cost"> {{dato.lecturas}}</span></a>
+									
+									<a href="#" class="add">&#160;</a>
+									<a href="#" class="add">&#160;</a>
+
+								</div>
+							</div>
+                        {% endfor %}
+
+
+
+
+						</div>
+						<!--end of #home_preview-->
+					</div>
+					<!--end of .textwidget-->
+				</aside>
+
+
+
+			<!--   -->
+
+				<div id="content">
+					<div class="posts_wrapper">
+						<div class="posts">
+							<h2 class="posts_title">Ultimos Autores</h2>
+							<a href="/autores/lista/" class="view_more">ver todos</a>
+							
+                        {% for dato in autores %}
+
+							<article class="post type-post format-standard">
+								<header class="entry-header">
+									<h1>
+										<a href="/autores/{{dato.id}}">{{dato.nombre | title}} {{dato.apellido | title}}</a>
+									</h1>
+									
+									<div class="entry-meta"> 	
+										<a href=http://twitter.com/{{dato.twitter}}><img src="{{STATIC_URL}}images/twitter.png">
+											<span class="entry-date"></span>
+										</a>
+
+										<a href=http://facebook.com/{{dato.facebook}}>
+											<span class="entry-date"><img src="{{STATIC_URL}}images/facebook.png"></span>
+										</a>
+
+										<a href=mailto:{{dato.correo}}>
+											<span class="entry-date"><img src="{{STATIC_URL}}images/email.png"></span>
+										</a>
+
+
+									</div>
+
+								</header>
+
+								<div class="entry-content">
+									<img class="wp-post-image" src="media/{{dato.foto}}" width="60" height="60" alt="autor" />
+									<p>{{dato.informacion | capfirst}}</p>
+								</div>
+								<footer>
+									<div class="comments-link">
+										<a href="#">25 publicaciones / 20 investigaciones</a>
+									</div>
+								</footer>
+							</article>
+                        {% endfor %}
+
+				        </div>
+						
+
+
+
+						<div class="testimonials">
+							
+							<h2 class="posts_title">Ultimos comentarios</h2>
+							
+                       {% for dato in comentarios %}
+
+							<div class="testimonials_quote">
+								<blockquote>{{dato.comentario | capfirst}}</blockquote>
+								<div class="quote_footer">
+									<div class="quote_author"><b>En: </b>{{dato.publicacion.titulo | title}}</div>
+									<span><b>Publicado por: </b>Pedro Perez</span>
+								</div>
+							</div>
+
+                        {% endfor %}
+
+						</div>
+						
+
+					</div>
+
+					<br/><br/><br/>
+				</div>
+
+
+{% endblock %}

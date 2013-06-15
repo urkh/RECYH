@@ -1,0 +1,243 @@
+{% extends 'base.html' %}                    
+
+
+{% block titulo %}Publicacion{% endblock %}
+
+{% block contenido %}
+                    <aside class="widget">
+                        <div class="textwidget">
+                            <div class="home_full_wrapper">
+                                
+                                <div class="search_options">
+                                    <form action="#" />
+                                        <div>
+                                            <input placeholder="Buscar por..." type="text" /> 
+                                            <select class="property">
+                                                <option value="Titulo" selected="selected" />Titulo
+                                                <option value="ISSN" />ISSN
+                                                <option value="ISBN" />ISBN
+                                            </select>
+                                            <div class="separator"></div>
+                                            <select>
+                                                <option value="" disabled="disabled" selected="selected" />Area
+                                                <option />Salud
+                                                <option />Informatica
+                                                <option />Odontologia
+                                            </select>
+                                            <select>
+                                                <option value="" disabled="disabled" selected="selected" />Categoria
+                                                <option />Redes
+                                                <option />Programacion
+                                                <option />Algoritmos
+                                            </select>
+                                            <div class="separator"></div>
+                                            <input type="submit" value="buscar" />
+                                        </div>
+                                    </form>
+                                </div>
+
+
+
+                                <div id="home_info_full">
+
+                                    <div class="home_wrapper">
+                                        <div id="main_post_block" style="width:440px; height:430px;">
+                                            
+                                                <article class="post type-post format-standard">
+                                                      <header class="entry-header">
+                                                         <h1><b>Titulo:</b> {{publicacion.titulo | title}}</h1>
+                                                         <div class="entry-meta">Publicado el
+                                                            <a href="#">
+                                                                <span class="entry-date">{{publicacion.fechaPub}}, </span>
+                                                            </a>
+
+                                                            Lecturas:
+                                                            <span class="author vcard">
+                                                                <a class="url fn n" rel="author" href="#">{{publicacion.lecturas}}</a>
+                                                            </span>
+
+                                                        </div>
+
+                                                      </header>
+                                                      <div class="entry-content">
+                                                         <img class="wp-post-image" src="/media/{{publicacion.foto}}" width="60px" height="60px" alt="publicacion" />
+                                                         <h3>Resumen:</h3>
+                                                         <p>{{publicacion.resumen | capfirst}}</p>
+                                                      </div>
+                                                </article>
+
+
+
+
+                                                <article class="post type-post format-standard">
+                                                    <header class="entry-header">
+                                                        <h3>Informaci&oacute;n:</h3>
+                                                    </header>
+                                                    <div class="entry-content">                                                 
+                                                        <p>{{publicacion.informacion | capfirst}}</p>
+                                                    </div>
+                                                </article>
+
+
+                                            </div>
+
+                                    </div>
+                                   
+                
+                                </div>
+
+
+                                <div class="search_options home_info_full">
+                                    <div class="home_preview">
+                                        <div class="home_info">
+                                            <h4>Categoria: {{publicacion.categoria | capfirst}}</h4>
+                                            <ul>
+                                                <li>Area: {{publicacion.categoria.area.nombre | capfirst}}</li>
+                                                <li>ISBN: {{publicacion.isbn}}</li>
+                                                <li>ISSN: {{publicacion.issn}}</li>
+                                                
+                                            </ul>
+                                        </div>
+                                        <div class="home_footer">
+                                            <a class="rent" id="verContenido" href="#">Leer</a>
+                                            <a href="#" class="add">&#160;</a>
+                                        </div>
+                                    </div>
+                                    <h3>Sobre el autor:</h3>
+                                    <div class="separator"></div>
+                                    <div class="agent_details">
+                                        <img src="/media/{{publicacion.autores.foto}}" alt="autor" />
+                                        <div class="profile">
+                                            <h4>{{publicacion.autores.nombre | title}} {{publicacion.autores.apellido | title}}</h4>
+                                            <p><b>Telf.:</b>{{publicacion.autores.telefono}}<br /> {{publicacion.autores.correo}}</p>
+                                            <a href="/autores/{{publicacion.autores.id}}">Ver perfil</a>
+                                        </div>
+                                    </div>
+                                    <h3>Enviar por correo:</h3>
+                                    <div class="separator"></div>
+                                    <form action="#" />
+                                        <div>
+                                            <input type="email" placeholder="Correo" /> 
+                                            <input type="submit" value="Enviar" class="request" /></div>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <br/>
+                        </div>
+
+
+                        </aside>
+                
+                
+                <aside class="widget">
+                    <div class="textwidget">
+                        <div class="home_wrapper">
+                            <div id="main_post_block">
+                           
+                                <div id="comments" style="width:950px;">
+                                    <h3 id="comments-title">Comentarios</h3>
+                                    <ol class="commentlist" >
+
+                                    {% for dato in comentarios %}
+
+                                        <li class="comment even">
+                                            <article class="comment">
+                                                <span class="fn">{{dato.usuario}}</span>
+                                                <div class="comment-content">
+                                                    <p>{{dato.comentario}}</p>
+                                                </div>
+                                                <span class="span"><b>Publicado el </b><i>{{dato.fecha}}</i></span>
+
+                                                {% empty %}
+                                                <p>Sin comentarios...</p><br/>
+
+                                            </article>
+                                        </li>
+
+                                     {% endfor %}
+
+
+                                    </ol>
+                              
+                                    <div id="respond">
+                                        <h3 id="reply-title">Publicar Comentario</h3>
+                                        <form action="#" />
+                                            <div>
+                                                <textarea placeholder="Escribe aqui tu comentario" cols="10" rows="5"></textarea>
+                                                <input type="text" placeholder="Nombre" /><br/>
+                                                <input type="email" placeholder="correo@ejemplo.com" />
+                                                <div class="right">
+                                                    <input id="submit" type="submit" value="Enviar" />
+                                                </div>
+
+                                            </div>
+                                        </form>
+                                    </div>
+
+
+
+                                    
+
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+
+                </aside>
+
+
+    <div  id="contenido" title="{{publicacion.titulo}}">
+
+         <div id="publicacion">
+            <div class="hard"> Turn.js </div> 
+            <div>{{publicacion.contenido}}</div>
+            <div class="hard"></div> 
+        </div>
+        
+    </div>
+
+
+    <script type="text/javascript">
+        $( "#contenido").dialog({ 
+            autoOpen: false ,
+            height: 650,
+            width: 1050,
+            modal: true
+        });
+
+        
+        $( "#verContenido" ).click(function() {
+            $( "#contenido" ).dialog( "open" );
+
+            $('#publicacion').turn({
+                display: 'double',
+                acceleration: true,
+                //gradients: true,
+                radients: !$.isTouch,
+                elevation:50,
+                width: 1000,
+                height: 600,
+                autoCenter: true,
+                when: {
+                    turned: function(e, page) {
+                        //console.log('Current view: ', $(this).turn('view'));
+                    }
+                }
+            });
+
+
+        });
+      
+                        
+        $(window).bind('keydown', function(e){
+                            
+            if (e.keyCode==37)
+                $('#magazine').turn('previous');
+            else if (e.keyCode==39)
+                $('#magazine').turn('next');
+                                
+        });
+
+    </script> 
+{% endblock %}

@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Autor{% endblock %}
+
+{% block contenido %}
+
+ <aside class="widget">
+                        <div class="textwidget">
+                            <div class="home_wrapper agent_wrapper">
+                                
+
+
+                                <div class="search_options">
+                                    <form action="#" />
+                                        <div>
+                                            <input placeholder="Buscar..." type="text" /> 
+                                            <select class="property">
+                                                <option value="N" selected="selected" />Nombre
+                                                <option value="A" />Apellido
+                                                <option value="Correo" />Correo
+                                            </select>
+                                            <div class="separator"></div>
+                                            <select>
+                                                <option value="" disabled="disabled" selected="selected" />Area
+                                                <option />Salud
+                                                <option />Informatica
+                                                <option />Odontologia
+                                            </select>
+                                            <select>
+                                                <option value="" disabled="disabled" selected="selected" />Categoria
+                                                <option />Redes
+                                                <option />Programacion
+                                                <option />Algoritmos
+                                            </select>
+                                            <div class="separator"></div>
+                                            <input type="submit" value="buscar" />
+                                        </div>
+                                    </form>
+                                </div>
+
+
+
+                                <div id="home_preview" class="agent">
+                                    <div class="agent_info_full">
+                                        <img src="/media/{{autor.foto}}" alt="autor" />
+                                        <div class="agent_name">
+                                            <h3>{{autor.nombre | title}} {{autor.apellido | title}}</h3>
+                                            <a href="mailto:{{autor.correo}}"></a>
+                                        </div>
+                                        <div class="personal">
+                                            <p><b>Lineas de Inv. </b> blach blach{{autor.lineainv | capfirst}}</p>
+                                        </div>
+                                        <div class="home_info agent_info">
+                                            <ul>
+                                                <li>Profesion</li>
+                                                <li>Grado Academico</li>
+                                                <li>{{autor.telefono}}</li>
+                                                <li>{{autor.correo}}</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="agent_description">
+                                        <h3>Resumen</h3>
+                                        <p>{{autor.informacion | capfirst}}</p>
+                                    </div>
+                                    
+
+                                    <div class="listings">
+                                        <h3>Publicaciones de <a href="#">{{autor.nombre | capfirst}} {{autor.apellido | capfirst}}</a></h3>
+
+
+                                    {% for dato in publicaciones %}
+
+                                        <div class="home_preview">
+                                            <img src="/media/{{dato.foto}}" alt="publicacion" width="60" height="60" />
+                                            <div class="home_info">
+                                                <a href="/publicaciones/{{dato.id}}"><h4>{{dato.titulo | title}}</h4></a>
+                                                <ul>
+                                                   <!-- <li>{{dato.autores.nombre}} {{dato.autores.apellido}}</li> -->
+                                                    <li>{{dato.categoria.area.nombre | capfirst}}</li>
+                                                    <li>{{dato.categoria.nombre | capfirst}}</li>
+                                                </ul>
+                                            </div>
+                                            <div class="home_footer">
+                                                <a class="sale" href="#">Lecturas<span class="home_cost"> {{dato.lecturas}}</span></a>
+                                                
+                                                <a href="#" class="add">&#160;</a>
+                                                <a href="#" class="add">&#160;</a>
+
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                        
+
+                                        
+                                        <div class="more_rooms"><a href="#" class="more">Cargar</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+
+{% endblock %}

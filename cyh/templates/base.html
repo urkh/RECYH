@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8' />
+	<title>{% block titulo  %}{% endblock %}</title>
+	<link href="{{STATIC_URL}}css/style.css" rel="stylesheet" />
+	<link href="{{STATIC_URL}}css/select2.css" rel="stylesheet" />
+	<link href="{{STATIC_URL}}css/jquery-ui.css" rel="stylesheet" />
+	<!--[if lt IE 9]><script src="js/html5.js"></script><![endif]-->
+	<!--[if IE 7]><link href="css/ie7.css" rel="stylesheet"><![endif]-->
+	<!--[if IE 8]><link href="css/ie8.css" rel="stylesheet"><![endif]-->
+	<!--[if IE 9]><link href="css/ie9.css" rel="stylesheet"><![endif]-->
+	<script src="{{STATIC_URL}}js/jquery-1.7.2.min.js"></script>
+	<script src="{{STATIC_URL}}js/jquery-ui-1.10.3.custom.min.js"></script>
+	<script src="{{STATIC_URL}}js/script.js"></script>
+	<script src="{{STATIC_URL}}js/select2.min.js"></script>
+	<script src="{{STATIC_URL}}js/turn.min.js" type="text/javascript"></script>
+
+
+	<script>
+		(function($) { 
+			$(document).ready(function() { 
+				$('body').addClass('home'); 
+			});
+		 })(jQuery);
+	</script>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+	<div id="page">
+		<header>
+			<h1>
+				<a href="/">C y H</a>
+			</h1>
+			<nav id="site-navigation" class="main-navigation">
+				<div class="nav-menu">
+					<ul>
+						<li class="page_item">
+							<a href="#">Navegacion</a>
+						    <ul class="children">
+								<li class="page_item">
+                                    <a href="#">Unidades de Investigacion</a>
+                                </li>
+								<li class="current_page_item">
+                                    <a href="/autores/lista/">Investigadores</a>
+                                </li>
+								<li class="page_item">
+                                    <a href="#">Revistas </a>
+                                </li>
+								<li class="page_item">
+                                    <a href="#">Eventos </a>
+                                </li>
+					    	</ul>
+                        </li>
+						
+                        <li class="current_page_item">
+                        	<a href="#">Documentos</a>
+                            <ul class="children">
+                                <li class="page_item">
+                                    <a href="#">Titulos</a>
+                                </li>
+                                
+                                <li class="current_page_item">
+                                    <a href="#">Autores</a>
+                                </li>
+
+                                <li class="page_item">
+                                    <a href="#">Areas</a>
+                                </li>
+
+
+                                <li class="page_item">
+                                    <a href="#">Categorias</a>
+                                </li>
+
+                                <li class="page_item">
+                                    <a href="#">Fecha de Publicacion</a>
+                                </li>
+
+
+                            </ul>	
+                        </li>
+         			
+                        <li class="page_item">
+                        	<a href="#">Estadisticas</a>
+                        </li>                       
+
+					</ul>
+				</div>
+			</nav>
+
+            
+			<div id="header_widget">
+				<aside class="widget">
+					<div class="login_buttons">
+						<a class="register" href="#">Entrar</a>
+						<a class="register" href="#">Registrar</a>
+					</div>
+				</aside>
+			</div>
+			
+		</header>
+
+
+
+		<div id="main" class="wrapper">
+			<div id="primary">
+				<div id="heading">
+					<div id="heading_text_holder">
+
+						<div class="heading_text slide_1">
+							<div class="slide_holder">
+								<h2>Caminos y Horizontes</h2>
+								<span>
+                                
+                                Ponemos a disposición de la comunidad universitaria, material intelectual de los investigadores y docentes, así como información de interés para estar al día con la dinámica de la <b>Universidad Romulo Gallegos</b>. Gestionamos, difundimos, y facilitamos el acceso a documentos electrónicos a texto completo creados por la comunidad universitaria.
+
+                                
+								</span>
+							</div>
+						</div>
+
+						<div class="heading_text slide_2">
+							<div class="slide_holder">
+								<h2>Leyenda 2</h2>
+							</div>
+						</div>
+
+						<div class="heading_text slide_3">
+							<div class="slide_holder">
+								<h2>Leyenda 3</h2>
+								<div>
+								</div>
+							</div>
+						</div>
+
+						<div class="heading_text slide_4">
+							<div class="slide_holder">
+								<h2>Leyenda 4</h2>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="indicators">
+						<a href="#" id="slide_1" class="current"></a> 
+						<a href="#"	id="slide_2"></a> 
+						<a href="#" id="slide_3"></a> 
+						<a href="#"	id="slide_4"></a>
+					</div>
+
+				</div>
+
+
+
+
+			{% block contenido %}{% endblock %}
+
+
+
+
+	
+
+
+			<br/><br/><br/>
+
+
+
+				<aside class="widget widget_text">
+					<div class="textwidget">
+						<div class="widget_info">
+							<div class="first">
+								<h4>
+									<a href="">Informacion</a>
+								</h4>
+								<ul>
+									<li><a href="">Estadisticas</a></li>
+									<li><a href="">Enviar Doc.</a></li>
+									<li><a href="">Contacto</a></li>
+								</ul>
+							</div>
+							<div class="second">
+								<h4>
+									<a href="#">Ayuda</a>
+								</h4>
+								<p>Si tienes duda sobre el uso del sitio, descarga la documentacion oficial desde aqui</p>
+							</div>
+							<div class="third">
+								<h4>
+									<a href="#">Contacto</a>
+								</h4>
+								<p>Puedes contactarnos por los siguientes numeros y correos.</p>
+								<p>
+									<b>T.:</b> (0246) 456 - 78 - 90<br />
+									<b>C.:</b> admin@unerg.edu.ve
+								</p>
+							</div>
+							<div class="fourth">
+								<h4>
+									<a href="#">Suscribirse</a>
+								</h4>
+								<p>Suscribete y recibe semanalmente las ultimas publicaciones en tu correo electronico</p>
+								<form action="#" />
+								<div>
+									<input type="email" placeholder="Correo electronico" /> 
+									<input type="submit" value=" " />
+								</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</aside>
+
+
+
+			</div>
+			<!--end of #primary-->
+		</div>
+		<!--end of #main-->
+		<footer>
+			<div class="site-info">
+				<span>Dise&ntilde;ado por <a href="">Gustavo Le&oacute;n</a></span>
+			</div>
+			<div class="contacts">
+				<a class="tw" href=""></a>
+                <a class="in" href=""></a>
+                <a class="fb" href=""></a>
+			</div>
+		</footer>
+	</div>
+	<!--end of #page-->
+</body>
+</html>

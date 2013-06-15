@@ -1,0 +1,77 @@
+{% extends 'base.html' %}                    
+
+{% block titulo %}Lista de Autores{% endblock %}
+
+{% block contenido %}
+                    <aside class="widget">
+                        <div class="textwidget">
+                            <div class="home_wrapper">
+                                
+
+                                <div class="search_options">
+                                    <form action="#" />
+                                        <div>
+                                            <input placeholder="Buscar..." type="text" /> 
+                                            <select class="property">
+                                                <option value="N" selected="selected" />Nombre
+                                                <option value="A" />Apellido
+                                                <option value="Correo" />Correo
+                                            </select>
+                                            <div class="separator"></div>
+                                            <select>
+                                                <option value="" disabled="disabled" selected="selected" />Area
+                                                <option />Salud
+                                                <option />Informatica
+                                                <option />Odontologia
+                                            </select>
+                                            <select>
+                                                <option value="" disabled="disabled" selected="selected" />Categoria
+                                                <option />Redes
+                                                <option />Programacion
+                                                <option />Algoritmos
+                                            </select>
+                                            <div class="separator"></div>
+                                            <input type="submit" value="buscar" />
+                                        </div>
+                                    </form>
+                                </div>
+                                
+
+                                <div id="home_preview" class="agents">
+                                    <div class="view_more sort_by">
+                                        <span>ordenar por:</span>
+                                        <a href="#">mas leidos</a> | <a href="#">mas publicaciones</a>
+                                    </div>
+
+
+                                {% for dato in autores %}
+                                    
+                                    <div class="home_preview agent_preview">
+                                        <img src="/media/{{dato.foto}}" alt="autor" />
+                                        <div class="home_info agent_info">
+                                            <a href="/autores/{{dato.id}}"><h4>{{dato.nombre | capfirst}} {{dato.apellido | capfirst}}</h4></a>
+                                            <ul>
+                                                <li>Profesion</li>
+                                                <li>Grado Academico</li>
+                                                <li>{{dato.telefono}}</li>
+                                                <li>{{dato.correo}}</li>
+                                            </ul>
+                                        </div>
+                                        <div class="home_footer">
+                                            <a class="sale" href="/autores/{{dato.id}}">Ver perfil</a>
+                                            <span class="home_cost">17 Publicaciones</span>
+                                        </div>
+                                    </div>
+
+                                {% endfor %}
+
+
+
+                                    <div class="more_rooms"><a href="#" class="more">Cargar</a></div>
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+                    </aside>
+{% endblock %}
