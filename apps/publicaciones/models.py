@@ -1,6 +1,6 @@
 from django.db import models
-from autores.models import Autores
-from categorias.models import Categorias
+from apps.autores.models import Autores
+from apps.categorias.models import Categorias
 from PIL import Image
 
 # Create your models here.
@@ -19,12 +19,12 @@ class Publicaciones(models.Model):
     titulo = models.CharField(max_length=100)
     fechaReg = models.DateField()
     fechaPub = models.DateField()
-    issn = models.CharField(max_length=50)
-    isbn = models.CharField(max_length=50)
+    issn = models.CharField('ISSN', max_length=50)
+    isbn = models.CharField('ISBN', max_length=50)
     informacion = models.TextField()
     resumen = models.TextField()
     contenido = models.TextField()
-    lecturas = models.IntegerField()
+    lecturas = models.IntegerField(blank=True, null=True)
     foto = models.ImageField(upload_to='publicaciones')
 
     def __unicode__(self):

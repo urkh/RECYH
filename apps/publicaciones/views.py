@@ -2,7 +2,7 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 
-from publicaciones.models import Publicaciones, Comentarios
+from apps.publicaciones.models import Publicaciones, Comentarios
 
 
 def publicacion(request, ids):

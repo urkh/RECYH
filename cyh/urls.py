@@ -16,14 +16,14 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
    
-    url(r'^$', 'inicio.views.inicio'),
+    url(r'^$', 'apps.inicio.views.inicio'),
    
 
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root':settings.MEDIA_ROOT,}),
-    url(r'^autores/(\d+)/$', 'autores.views.autor'),
-    url(r'^autores/lista/$', 'autores.views.lista'),
-    url(r'^publicaciones/(\d+)/$', 'publicaciones.views.publicacion'),
-    url(r'^publicaciones/lista/$', 'publicaciones.views.lista'),
+    url(r'^autores/(\d+)/$', 'apps.autores.views.autor'),
+    url(r'^autores/lista/$', 'apps.autores.views.lista'),
+    url(r'^publicaciones/(\d+)/$', 'apps.publicaciones.views.publicacion'),
+    url(r'^publicaciones/lista/$', 'apps.publicaciones.views.lista'),
 
 
 )

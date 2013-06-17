@@ -2,8 +2,8 @@
 #from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from autores.models import Autores
-from publicaciones.models import Publicaciones, Comentarios
+from apps.autores.models import Autores
+from apps.publicaciones.models import Publicaciones, Comentarios
 
 
 

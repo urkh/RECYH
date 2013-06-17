@@ -1,4 +1,4 @@
-from categorias.models import Categorias
+from apps.categorias.models import Categorias
 from django.contrib import admin
 
 

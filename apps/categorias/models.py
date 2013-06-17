@@ -1,5 +1,5 @@
 from django.db import models
-from areas.models import Areas
+from apps.areas.models import Areas
 
 # Create your models here.
 

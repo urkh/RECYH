@@ -1,4 +1,4 @@
-from publicaciones.models import Publicaciones, Comentarios
+from apps.publicaciones.models import Publicaciones, Comentarios
 from django.contrib import admin
 
 class AdminPublicaciones(admin.ModelAdmin):
@@ -6,6 +6,7 @@ class AdminPublicaciones(admin.ModelAdmin):
     list_filter = ('categoria__nombre','issn')
     search_fields = ('categoria__nombre', 'issn')
     date_hierarchy = 'fechaPub'
+    exclude = ('lecturas',)
 
 
 class AdminComentarios(admin.ModelAdmin):

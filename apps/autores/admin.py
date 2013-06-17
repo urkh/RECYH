@@ -1,4 +1,4 @@
-from autores.models import Autores
+from apps.autores.models import Autores
 from django.contrib import admin
 
 
