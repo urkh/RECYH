@@ -1,6 +1,6 @@
 from django.db import models
 from apps.autores.models import Autores
-from apps.categorias.models import Categorias
+from apps.opciones.models import Categorias
 from PIL import Image
 
 # Create your models here.
@@ -12,7 +12,6 @@ class Publicaciones(models.Model):
         db_table='publicaciones'
         verbose_name_plural='Publicaciones'
 
-    
 
     categoria = models.ForeignKey(Categorias)
     autores = models.ForeignKey(Autores)
