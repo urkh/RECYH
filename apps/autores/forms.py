@@ -3,7 +3,7 @@ from django_select2 import *
 from .models import Autores
 from apps.opciones.models import GradosAc, Profesiones, LineasInv
 from suit.widgets import *
-from suit_redactor.widgets import RedactorWidget
+from suit_ckeditor.widgets import CKEditorWidget
 
 class GradosAcSelect(AutoModelSelect2Field):
     queryset = GradosAc.objects
@@ -35,13 +35,18 @@ class FormAutores(forms.ModelForm):
 
     class Meta:
         model = Autores
+
+        toolbar = [
+            {'items': ['Bold', 'Italic']}
+        ]
+
+        config = {
+            'language': 'es',
+            'toolbar': toolbar
+        }
+
         widgets = {
-            'informacion': RedactorWidget(
-                editor_options={
-                    'buttons': ['html', '|', 'bold', 'italic'],
-                    'lang': 'es'
-                }
-            ),
+            'informacion': CKEditorWidget(editor_options=config),
             'sexo': Select2Widget(select2_options={'width':'200px'}),
             'fechaNac': SuitDateWidget(),
             'fechaReg': SuitDateWidget(),

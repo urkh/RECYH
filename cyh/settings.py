@@ -171,7 +171,6 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'suit_ckeditor',
-    'suit_redactor',
     'suit',
     'django.contrib.admin',
     

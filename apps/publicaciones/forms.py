@@ -1,7 +1,6 @@
 from django.forms import ModelForm
 from suit.widgets import *
 from suit_ckeditor.widgets import CKEditorWidget
-from suit_redactor.widgets import RedactorWidget
 from django_select2 import *
 from .models import Publicaciones
 from apps.autores.models import Autores
@@ -67,7 +66,7 @@ class FormPublicaciones(ModelForm):
 
         config2 = {
             'language': 'es',
-            'toolbarGroups': toolbar2
+            'toolbar': toolbar2
         
         }
         
