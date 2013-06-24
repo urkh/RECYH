@@ -31,7 +31,7 @@ class Autores(models.Model):
     telefono = models.IntegerField()
     twitter = models.CharField(max_length=50) 
     facebook = models.CharField(max_length=50)
-    foto = models.ImageField(upload_to='autores')
+    foto = models.ImageField(upload_to='autores', blank=True, null=True)
 
     def __unicode__(self):
         return self.nombre

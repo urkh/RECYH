@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
 
 {% block titulo %} Inicio - Caminos y Horizontes {% endblock %}
 
@@ -19,7 +20,14 @@
                        {% for dato in publicaciones %}
 
 							<div class="home_preview">
-								<img src="media/{{dato.foto}}" alt="home photo" />
+                            {% if dato.foto == "" %}
+
+								<img src="{% static "images/publicacion.png" %}" alt="publicacion" />
+
+                            {% else %}
+								<img src="media/{{dato.foto}}" alt="publicacion" />
+
+                            {% endif %}    
 								<div class="home_info">
 									<a href="/publicaciones/{{dato.id}}"><h4>{{dato.titulo | title}}</h4></a>
 									<ul>
@@ -29,7 +37,7 @@
 									</ul>
 								</div>
 								<div class="home_footer">
-									<a class="sale" href="#">Lecturas<span class="home_cost"> {{dato.lecturas}}</span></a>
+									<a class="sale">{{dato.lecturas}} Lecturas</a>
 									
 									<a href="#" class="add">&#160;</a>
 									<a href="#" class="add">&#160;</a>
@@ -66,23 +74,31 @@
 									</h1>
 									
 									<div class="entry-meta"> 	
-										<a href=http://twitter.com/{{dato.twitter}}><img src="{{STATIC_URL}}images/twitter.png">
+										<a href=http://twitter.com/{{dato.twitter}}>
+                                            <img src="{{STATIC_URL}}images/twitter.png">
 											<span class="entry-date"></span>
 										</a>
 
 										<a href=http://facebook.com/{{dato.facebook}}>
-											<span class="entry-date"><img src="{{STATIC_URL}}images/facebook.png"></span>
+											<span class="entry-date">
+                                                <img src="{{STATIC_URL}}images/facebook.png">
+                                            </span>
 										</a>
 
 										<a href=mailto:{{dato.correo}}>
-											<span class="entry-date"><img src="{{STATIC_URL}}images/email.png"></span>
+											<span class="entry-date">
+                                            <img src="{{STATIC_URL}}images/email.png"></span>
 										</a>
 									</div>
 									
 								</header>
 
 								<div class="entry-content">
-									<img class="wp-post-image" src="media/{{dato.foto}}" width="60" height="60" alt="autor" />
+                                {% if dato.foto == "" %}
+									<img class="wp-post-image" src="{% static "images/autor.png" %}" width="64" height="64"  alt="autor" />
+                                {% else %}    
+                                    <img class="wp-post-image" src="media/{{dato.foto}}" width="64" height="64"  alt="autor" />
+                                {% endif %}
 									<p>{{dato.informacion | capfirst | safe}}</p>
 								</div>
 								<footer>

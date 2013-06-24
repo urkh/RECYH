@@ -1,4 +1,6 @@
 {% extends 'base.html' %}                    
+{% load staticfiles %}
+
 
 {% block titulo %}Lista de Autores{% endblock %}
 
@@ -47,7 +49,12 @@
                                 {% for dato in autores %}
                                     
                                     <div class="home_preview agent_preview">
+                                    {% if dato.foto == "" %}
+                                        <img src="{% static "images/autor.png" %}" alt="autor" />
+                                    {% else %}
                                         <img src="/media/{{dato.foto}}" alt="autor" />
+                                    {% endif %}
+                                        
                                         <div class="home_info agent_info">
                                             <a href="/autores/{{dato.id}}"><h4>{{dato.nombre | capfirst}} {{dato.apellido | capfirst}}</h4></a>
                                             <ul>

@@ -1,4 +1,5 @@
 {% extends 'base.html' %}                    
+{% load staticfiles %}
 
 {% block titulo %}Lista de Publicaciones{% endblock %}
 
@@ -49,7 +50,11 @@
 
 
                                    <div class="agent_info_full">
+                                   {% if dato.foto == "" %}
+                                        <img src="{% static "images/publicacion.png" %}" alt="publicacion" />
+                                   {% else %}
                                         <img src="/media/{{dato.foto}}" alt="publicacion" />
+                                   {% endif %}
                                         <div class="agent_name">
                                             <a href="/publicaciones/{{dato.id}}"><h3>{{dato.titulo | title}}</h3></a><br/>
                                             <b>Publicado el:</b> {{dato.fechaPub}}
@@ -62,7 +67,7 @@
                                                 <li>Numero: {{dato.numero}}</li>
                                                 <li>{{dato.categoria.area.nombre}}</li>
                                                 <li>{{dato.categoria}}</li>
-                                                <li>{{dato.lecturas}}</li>
+                                                <li>Lecturas: {{dato.lecturas}}</li>
                                             </ul>
                                         </div>
                                     </div>

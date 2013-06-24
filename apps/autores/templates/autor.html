@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
 
-{% block titulo %}Autor{% endblock %}
+{% block titulo %}Autor: {{autor.nombre | title}} {{autor.apellido | title}}{% endblock %}
 
 {% block contenido %}
 
@@ -42,7 +43,11 @@
 
                                 <div id="home_preview" class="agent">
                                     <div class="agent_info_full">
+                                      {% if autor.foto == ""  %}
+                                        <img src="{% static "images/autor.png" %}" alt="autor" />
+                                      {% else %}
                                         <img src="/media/{{autor.foto}}" alt="autor" />
+                                      {% endif %}
                                         <div class="agent_name">
                                             <h3>{{autor.nombre | title}} {{autor.apellido | title}}</h3>
                                             <a href="mailto:{{autor.correo}}"></a>
@@ -59,7 +64,7 @@
                                         <div class="home_info agent_info">
                                             <ul>
                                                 <li>{{autor.profesion}}</li>
-                                                <li>{{autor.gradosac}}</li>
+                                                <li>{{autor.gradoAc}}</li>
                                                 <li>{{autor.telefono}}</li>
                                                 <li>{{autor.correo}}</li>
                                             </ul>
@@ -78,7 +83,11 @@
                                     {% for dato in publicaciones %}
 
                                         <div class="home_preview">
+                                        {% if dato.foto == "" %}
+                                            <img src="{% static "images/publicacion.png" %}" alt="publicacion" width="60" height="60" />
+                                        {% else %}
                                             <img src="/media/{{dato.foto}}" alt="publicacion" width="60" height="60" />
+                                        {% endif %}
                                             <div class="home_info">
                                                 <a href="/publicaciones/{{dato.id}}"><h4>{{dato.titulo | title}}</h4></a>
                                                 <ul>

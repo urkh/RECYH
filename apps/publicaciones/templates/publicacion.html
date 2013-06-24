@@ -1,5 +1,5 @@
 {% extends 'base.html' %}                    
-
+{% load staticfiles %}
 
 {% block titulo %}Publicacion | {{publicacion.titulo}}{% endblock %}
 
@@ -60,7 +60,11 @@
 
                                                       </header>
                                                       <div class="entry-content">
+                                                      {% if publicacion.foto == "" %}
+                                                         <img class="wp-post-image" src="{% static "images/publicacion.png" %}" width="60px" height="60px" alt="publicacion" />
+                                                      {% else %}
                                                          <img class="wp-post-image" src="/media/{{publicacion.foto}}" width="60px" height="60px" alt="publicacion" />
+                                                      {% endif %}
                                                          <h3>Resumen:</h3>
                                                          <p>{{publicacion.resumen | capfirst | safe}}</p>
                                                       </div>
@@ -108,7 +112,11 @@
                                    {% for dato in autores %} 
                                     <div class="separator"></div>
                                     <div class="agent_details">
+                                    {% if dato.foto == "" %}
+                                        <img src="{% static "images/autor.png" %}" alt="autor" />
+                                    {% else %}
                                         <img src="/media/{{dato.foto}}" alt="autor" />
+                                    {% endif %}
                                         <div class="profile">
                                             <a href="/autores/{{dato.id}}"><h4>{{dato.nombre | title}} {{dato.apellido | title}}</h4></a>
                                             <p><b>Telf.:</b>{{dato.telefono}}<br /> {{dato.correo}}</p>

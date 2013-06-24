@@ -23,7 +23,7 @@ class Publicaciones(models.Model):
     resumen = models.TextField()
     contenido = models.TextField()
     lecturas = models.IntegerField(blank=True, null=True)
-    foto = models.ImageField(upload_to='publicaciones')
+    foto = models.ImageField(upload_to='publicaciones', blank=True, null=True)
 
     def __unicode__(self):
         return self.titulo
