@@ -3,21 +3,21 @@ from apps.autores.models import Autores
 from apps.publicaciones.forms import FormPublicaciones
 
 from django.contrib import admin
-import autocomplete_light
 
 class AdminPublicaciones(admin.ModelAdmin):
     
     form = FormPublicaciones
-    list_display = ('categoria', 'autores', 'titulo', 'fechaPub', 'issn', 'lecturas')
-    list_display_links = ('autores', )
-    list_filter = ('categoria__nombre','issn')
-    search_fields = ('categoria__nombre', 'issn')
+    list_display = ('categoria', 'titulo', 'fechaPub', 'lecturas', 'getAutores')
+    list_filter = ('categoria__nombre','numero')
+    search_fields = ('categoria__nombre', 'numero')
     date_hierarchy = 'fechaPub'
     #exclude = ('lecturas',)
-
-autocomplete_light.register(Autores, search_fields=('nombre',),
-    autocomplete_js_attributes={'placeholder': 'city name ..'})
-
+    fieldsets = [
+        (None, {'fields':['categoria', 'autores', 'fechaReg', 'informacion']}),
+        ('Datos de la publicacion', {'fields': ['titulo', 'fechaPub', 'resumen', 'numero', 'foto', 'lecturas']}),
+        ('Contenido', {'fields':['contenido', ]})
+    
+    ]
 
 
 

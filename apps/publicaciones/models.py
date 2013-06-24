@@ -14,13 +14,12 @@ class Publicaciones(models.Model):
 
 
     categoria = models.ForeignKey(Categorias)
-    autores = models.ForeignKey(Autores)
+    autores = models.ManyToManyField(Autores, related_name='autores')
     titulo = models.CharField(max_length=100)
-    fechaReg = models.DateField()
-    fechaPub = models.DateField()
-    issn = models.CharField('ISSN', max_length=50)
-    isbn = models.CharField('ISBN', max_length=50)
+    fechaReg = models.DateField('Fecha de Registro')
+    fechaPub = models.DateField('Fecha de Publicacion')
     informacion = models.TextField()
+    numero = models.IntegerField('Numero de Publicacion')
     resumen = models.TextField()
     contenido = models.TextField()
     lecturas = models.IntegerField(blank=True, null=True)
@@ -28,6 +27,15 @@ class Publicaciones(models.Model):
 
     def __unicode__(self):
         return self.titulo
+
+    def getAutores(self):
+        #autoress = autores.nombre + autores.apellido
+        return ', '.join([autores.nombre for autores in self.autores.all()])
+        #return '%s'%(obj.autores.nombre)
+
+
+    getAutores.short_description = 'Autores'
+    getAutores.admin_order_field = 'autores__cedula'
 
 
 

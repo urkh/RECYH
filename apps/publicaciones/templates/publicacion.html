@@ -1,7 +1,7 @@
 {% extends 'base.html' %}                    
 
 
-{% block titulo %}Publicacion{% endblock %}
+{% block titulo %}Publicacion | {{publicacion.titulo}}{% endblock %}
 
 {% block contenido %}
                     <aside class="widget">
@@ -46,9 +46,9 @@
                                                 <article class="post type-post format-standard">
                                                       <header class="entry-header">
                                                          <h1><b>Titulo:</b> {{publicacion.titulo | title}}</h1>
-                                                         <div class="entry-meta">Publicado el
+                                                         <div class="entry-meta">Creado el
                                                             <a href="#">
-                                                                <span class="entry-date">{{publicacion.fechaPub}}, </span>
+                                                                <span class="entry-date">{{publicacion.fechaReg}}, </span>
                                                             </a>
 
                                                             Lecturas:
@@ -62,10 +62,9 @@
                                                       <div class="entry-content">
                                                          <img class="wp-post-image" src="/media/{{publicacion.foto}}" width="60px" height="60px" alt="publicacion" />
                                                          <h3>Resumen:</h3>
-                                                         <p>{{publicacion.resumen | capfirst}}</p>
+                                                         <p>{{publicacion.resumen | capfirst | safe}}</p>
                                                       </div>
                                                 </article>
-
 
 
 
@@ -74,7 +73,7 @@
                                                         <h3>Informaci&oacute;n:</h3>
                                                     </header>
                                                     <div class="entry-content">                                                 
-                                                        <p>{{publicacion.informacion | capfirst}}</p>
+                                                        <p>{{publicacion.informacion | capfirst | safe}}</p>
                                                     </div>
                                                 </article>
 
@@ -92,9 +91,9 @@
                                         <div class="home_info">
                                             <h4>Categoria: {{publicacion.categoria | capfirst}}</h4>
                                             <ul>
-                                                <li>Area: {{publicacion.categoria.area.nombre | capfirst}}</li>
-                                                <li>ISBN: {{publicacion.isbn}}</li>
-                                                <li>ISSN: {{publicacion.issn}}</li>
+                                                <li>Numero: {{publicacion.numero}}</li>
+                                                <li>{{publicacion.categoria.area.nombre}}</li>
+                                                <li>{{publicacion.fechaPub}}</li>
                                                 
                                             </ul>
                                         </div>
@@ -103,16 +102,23 @@
                                             <a href="#" class="add">&#160;</a>
                                         </div>
                                     </div>
-                                    <h3>Sobre el autor:</h3>
+                                    <h3>Sobre los autores:</h3>
+                                    
+                                    
+                                   {% for dato in autores %} 
                                     <div class="separator"></div>
                                     <div class="agent_details">
-                                        <img src="/media/{{publicacion.autores.foto}}" alt="autor" />
+                                        <img src="/media/{{dato.foto}}" alt="autor" />
                                         <div class="profile">
-                                            <h4>{{publicacion.autores.nombre | title}} {{publicacion.autores.apellido | title}}</h4>
-                                            <p><b>Telf.:</b>{{publicacion.autores.telefono}}<br /> {{publicacion.autores.correo}}</p>
-                                            <a href="/autores/{{publicacion.autores.id}}">Ver perfil</a>
+                                            <a href="/autores/{{dato.id}}"><h4>{{dato.nombre | title}} {{dato.apellido | title}}</h4></a>
+                                            <p><b>Telf.:</b>{{dato.telefono}}<br /> {{dato.correo}}</p>
+                                            <a href="/autores/{{dato.id}}">Ver perfil</a>
                                         </div>
                                     </div>
+                                  {% endfor %}
+
+                                    
+                                    
                                     <h3>Enviar por correo:</h3>
                                     <div class="separator"></div>
                                     <form action="#" />
@@ -191,7 +197,9 @@
 
          <div id="publicacion">
             <div class="hard"> Turn.js </div> 
-            <div>{{publicacion.contenido}}</div>
+            {% for dato in contenidos %}
+            <div>{{ dato.contenido}}</div>
+            {% endfor %}
             <div class="hard"></div> 
         </div>
         

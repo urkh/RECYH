@@ -51,15 +51,15 @@
                                         <div class="home_info agent_info">
                                             <a href="/autores/{{dato.id}}"><h4>{{dato.nombre | capfirst}} {{dato.apellido | capfirst}}</h4></a>
                                             <ul>
-                                                <li>Profesion</li>
-                                                <li>Grado Academico</li>
+                                                <li>{{dato.profesion}}</li>
+                                                <li>{{dato.gradoAc}}</li>
                                                 <li>{{dato.telefono}}</li>
                                                 <li>{{dato.correo}}</li>
                                             </ul>
                                         </div>
                                         <div class="home_footer">
                                             <a class="sale" href="/autores/{{dato.id}}">Ver perfil</a>
-                                            <span class="home_cost">17 Publicaciones</span>
+                                            <span class="home_cost">{{dato.cantPub}} Publicaciones</span>
                                         </div>
                                     </div>
 

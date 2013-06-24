@@ -18,16 +18,14 @@ class Autores(models.Model):
     
     gradoAc = models.ForeignKey(GradosAc)
     profesion = models.ForeignKey(Profesiones)
-    lineasInv = models.ForeignKey(LineasInv)
+    lineasInv = models.ManyToManyField(LineasInv)
     
-
-
     cedula = models.CharField(max_length=12)
     nombre = models.CharField(max_length=50)
     apellido = models.CharField(max_length=50)
-    fechaNac = models.DateField()
+    fechaNac = models.DateField('Fecha de Nacimiento')
     sexo = models.IntegerField(choices=((0, 'Masculino'), (1, 'Femenino')))
-    fechaReg = models.DateField()
+    fechaReg = models.DateField('Fecha de Registro')
     informacion = models.TextField()
     correo = models.EmailField()
     telefono = models.IntegerField()
@@ -38,4 +36,5 @@ class Autores(models.Model):
     def __unicode__(self):
         return self.nombre
 
-
+    def getLineasInv(self):
+        return ', '.join([lineasInv.nombre for lineasInv in self.lineasInv.all()])

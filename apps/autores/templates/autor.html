@@ -48,12 +48,18 @@
                                             <a href="mailto:{{autor.correo}}"></a>
                                         </div>
                                         <div class="personal">
-                                            <p><b>Lineas de Inv. </b> blach blach{{autor.lineainv | capfirst}}</p>
+                                            <p><b>Lineas de Inv. </b>
+                                            {% for dato in lineasInv %}
+
+                                                {{dato.nombre | capfirst}}
+                                            {% endfor %}    
+    
+                                            </p>
                                         </div>
                                         <div class="home_info agent_info">
                                             <ul>
-                                                <li>Profesion</li>
-                                                <li>Grado Academico</li>
+                                                <li>{{autor.profesion}}</li>
+                                                <li>{{autor.gradosac}}</li>
                                                 <li>{{autor.telefono}}</li>
                                                 <li>{{autor.correo}}</li>
                                             </ul>
@@ -61,7 +67,7 @@
                                     </div>
                                     <div class="agent_description">
                                         <h3>Resumen</h3>
-                                        <p>{{autor.informacion | capfirst}}</p>
+                                        <p>{{autor.informacion | capfirst | safe}}</p>
                                     </div>
                                     
 
