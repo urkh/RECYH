@@ -170,20 +170,20 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'suit_ckeditor',
-    'suit',
-    'django.contrib.admin',
+    #'suit_ckeditor',
+    #'suit',
+    #'django.contrib.admin',
     
     #'south',
-    'django_select2',
-    'core',
-    'apps.inicio',
-    'apps.autores',
-    'apps.publicaciones',
-    'apps.opciones',
+    #'django_select2',
+    'ui',
+    'apps.admin.inicio',
+    #'apps.autores',
+    #'apps.publicaciones',
+    #'apps.opciones',
 )
 
-AUTO_RENDER_SELECT2_STATICS = False
+#AUTO_RENDER_SELECT2_STATICS = False
 
 
 
