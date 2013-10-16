@@ -6,7 +6,8 @@ from django.conf import settings
 
 urlpatterns = patterns('',
 
-    url(r'^admin/', 'apps.admin.inicio.views.inicio'),
+    url(r'^admin/$', 'apps.admin.inicio.views.inicio'),
+    url(r'^$', 'apps.front.inicio.views.inicio'),
    
 
     #url(r'^$', 'apps.inicio.views.inicio'),
