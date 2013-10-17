@@ -178,6 +178,7 @@ INSTALLED_APPS = (
     #'django_select2',
     'ui',
     'apps.admin.inicio',
+    'apps.front.inicio',
     #'apps.autores',
     #'apps.publicaciones',
     #'apps.opciones',

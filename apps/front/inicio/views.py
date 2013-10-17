@@ -18,5 +18,5 @@ def inicio(request):
     #return render_to_response('inicio.html',{'autores': autores, 'publicaciones': publicaciones, 'comentarios': comentarios, 'categorias': categorias}, context_instance=RequestContext(request))
 
 
-    return render_to_response('front.html', )
+    return render_to_response('front/inicio.html')
 
