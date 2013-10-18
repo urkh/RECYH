@@ -2,7 +2,7 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 
-from apps.front.publicaciones.models import Publicaciones, Comentarios
+from apps.articulos.models import Publicaciones, Comentarios
 
 
 
@@ -24,13 +24,6 @@ def publicacion(request, ids):
     #print publicacion.contenido
     
 
-
-
-
-
-
-
-
     return render_to_response('publicacion.html', {'publicacion': publicacion, 'comentarios': comentarios, 'autores': autores, 'contenidos': contenidos}, context_instance=RequestContext(request))
 
 
@@ -40,8 +33,13 @@ def procesarContenido(contenido, numero):
     while contenido:
         yield contenido[:numero]
         contenido = contenido[numero:]
+
+
+def articulo(request):
+    #publicaciones = Publicaciones.objects.all()
+    return render_to_response('front/articulo.html')
  
 
-def publicaciones(request):
+def articulos(request):
     #publicaciones = Publicaciones.objects.all()
-    return render_to_response('front/publicaciones.html')
+    return render_to_response('front/articulos.html')

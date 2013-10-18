@@ -1,8 +1,5 @@
 # Django settings for cyh project.
 
-from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
-
-
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -106,11 +103,6 @@ MIDDLEWARE_CLASSES = (
 )
 
 
-
-TEMPLATE_CONTEXT_PROCESSORS = TCP + (
-    'django.core.context_processors.request',
-)
-
 ROOT_URLCONF = 'cyh.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
@@ -123,46 +115,6 @@ TEMPLATE_DIRS = (
 )
 
 
-
-# Django Suit configuration example
-SUIT_CONFIG = {
-    # header
-    'ADMIN_NAME': 'Caminos y Horizontes',
-    # 'HEADER_DATE_FORMAT': 'l, j. F Y',
-    # 'HEADER_TIME_FORMAT': 'H:i',
-
-    # forms
-    'SHOW_REQUIRED_ASTERISK': True,  # Default True
-    'CONFIRM_UNSAVED_CHANGES': True, # Default True
-
-    # menu
-    # 'SEARCH_URL': '/admin/auth/user/',
-    # 'MENU_ICONS': {
-    #    'sites': 'icon-leaf',
-    #    'auth': 'icon-lock',
-    # },
-    # 'MENU_OPEN_FIRST_CHILD': True, # Default True
-
-    'MENU_EXCLUDE': ('sites',),
-    'MENU': (
-        #'sites',
-        {'label':'Usuarios', 'app':'auth', 'icon':'icon-lock', 'models':  ('user', 'group')},
-        {'label':'Autores', 'app':'autores', 'icon':'icon-question-sign', 'url':'/admin/autores/autores', 'models': ('autores')},
-        {'label':'Publicaciones', 'app':'publicaciones', 'icon':'icon-question-sign', 'url':'/admin/publicaciones/publicaciones', 'models': ('publicaciones')},
-        {'label':'Opciones', 'app': 'opciones', 'icon':'icon-cog', 'models': ('areas', 'categorias','profesiones', 'lineasinv', 'gradosac')},
-        #{'label': 'Support', 'icon':'icon-question-sign', 'url': '/support/'},
-    ),
-    
-
-    # misc
-    # 'LIST_PER_PAGE': 15
-}
-
-
-
-
-
-
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -170,24 +122,16 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #'suit_ckeditor',
-    #'suit',
     #'django.contrib.admin',
     
     #'south',
-    #'django_select2',
     'ui',
-    'apps.admin.inicio',
-
-    'apps.front.inicio',
-    'apps.front.autores',
-    'apps.front.publicaciones',
-    'apps.front.revistas',
-    'apps.front.opciones',
+    'apps.inicio',
+    'apps.autores',
+    'apps.articulos',
+    'apps.revistas',
+    'apps.opciones',
 )
-
-#AUTO_RENDER_SELECT2_STATICS = False
-
 
 
 # A sample logging configuration. The only tangible logging

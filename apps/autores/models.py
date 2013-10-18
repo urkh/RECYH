@@ -1,4 +1,4 @@
-from apps.front.opciones.models import GradosAc, Profesiones, LineasInv
+from apps.opciones.models import GradosAc, Profesiones, LineasInv
 
 from django.db import models
 from PIL import Image

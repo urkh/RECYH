@@ -20,3 +20,9 @@ def inicio(request):
 
     return render_to_response('front/inicio.html')
 
+
+
+def dashboard(request):
+    
+    return render_to_response('admin/dashboard.html')
+

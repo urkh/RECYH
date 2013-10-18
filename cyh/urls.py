@@ -6,11 +6,17 @@ from django.conf import settings
 
 urlpatterns = patterns('',
 
-    url(r'^admin/$', 'apps.admin.inicio.views.inicio'),
-    url(r'^$', 'apps.front.inicio.views.inicio'),
-    url(r'^articulos/$', 'apps.front.publicaciones.views.publicaciones'),
-    url(r'^revistas/$', 'apps.front.revistas.views.revistas'),
-    url(r'^autores/$', 'apps.front.autores.views.autores'),
+    url(r'^admin/$', 'apps.inicio.views.dashboard'),
+    url(r'^$', 'apps.inicio.views.inicio'),
+    
+    url(r'^articulo/$', 'apps.articulos.views.articulo'),
+    url(r'^articulos/$', 'apps.articulos.views.articulos'),
+    
+    url(r'^revistas/$', 'apps.revistas.views.revistas'),
+    
+    url(r'^autor/$', 'apps.autores.views.autor'),
+    url(r'^autores/$', 'apps.autores.views.autores'),
+    
 
     #url(r'^$', 'apps.inicio.views.inicio'),
    

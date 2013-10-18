@@ -1,14 +1,14 @@
 {% extends 'front/base.html' %}                    
 {% load staticfiles %}
 
-{% block titulo %}Numeros publicados{% endblock %}
+{% block titulo %}Autores - Revista Caminos y Horizontes{% endblock %}
 
 {% block contenido %}
 
    
-        <div class="container-960 innerT">
+<div class="container-960 innerT">
 
-    <h3 class="glyphicons circle_info margin-none"><i></i>About Us <span>MosaicPro Inc.</span></h3>
+    <h3 class="glyphicons circle_info margin-none"><i></i>Autores <span>mas destacados</span></h3>
     <div class="separator bottom"></div>
 
     <div class="widget widget-heading-simple widget-body-gray">
@@ -28,7 +28,7 @@
                 <div class="thumbnail widget-thumbnail">
                     <img data-src="holder.js/100%x200" alt="100%x200 Image Holder" />
                     <div class="caption">
-                        <h4>John Doe</h4>
+                        <h4><a href="/autor">John Doe</a></h4>
                         <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
                         
                         <!-- Social Icons -->
@@ -114,70 +114,24 @@
                             <h4>User Friendly Design</h4>
                             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an <br/> <a href="">learn more</a></p>
                         </div>
+
+
+                        <div class="separator bottom"></div>
+                        <div class="glyphicons glyphicon-large shield">
+                            <i></i>
+                            <h4>We Build Trusted Websites</h4>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an <br/> <a href="">learn more</a></p>
+                        </div>
+                        <div class="separator bottom"></div>
+                        <div class="glyphicons glyphicon-large group">
+                            <i></i>
+                            <h4>User Friendly Design</h4>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an <br/> <a href="">learn more</a></p>
+                        </div>
                     </div>
                 </div>
             </div>
-            
-            <!-- Carousel -->
-            <div class="widget widget-heading-simple widget-body-simple">
-                <div class="widget-body">
-                    <div class="carousel carousel-1 slide" id="myCarousel2">
-                        <div class="carousel-inner">
-                                                        <!-- Item -->
-                            <div class="item active">
-                                <div class="row-fluid">
-                                    <div class="span5 relativeWrap">
-                                        <div class="carousel-caption">
-                                            <h4>Get this item now!</h4>
-                                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.<br/> <a href="" target="_blank">Buy QuickAdmin</a></p>
-                                        </div>
-                                    </div>
-                                    <div class="span7">
-                                        <img src="../../../common/theme/images/gallery-2/8.jpg" alt="" />
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- // Item END -->
-                                                        <!-- Item -->
-                            <div class="item">
-                                <div class="row-fluid">
-                                    <div class="span5 relativeWrap">
-                                        <div class="carousel-caption">
-                                            <h4>Get this item now!</h4>
-                                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.<br/> <a href="" target="_blank">Buy QuickAdmin</a></p>
-                                        </div>
-                                    </div>
-                                    <div class="span7">
-                                        <img src="../../../common/theme/images/gallery-2/9.jpg" alt="" />
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- // Item END -->
-                                                        <!-- Item -->
-                            <div class="item">
-                                <div class="row-fluid">
-                                    <div class="span5 relativeWrap">
-                                        <div class="carousel-caption">
-                                            <h4>Get this item now!</h4>
-                                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.<br/> <a href="" target="_blank">Buy QuickAdmin</a></p>
-                                        </div>
-                                    </div>
-                                    <div class="span7">
-                                        <img src="../../../common/theme/images/gallery-2/10.jpg" alt="" />
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- // Item END -->
-                                                    </div>
-                        <ol class="carousel-indicators">
-                            <li data-target="#myCarousel2" data-slide-to="0" class="active"></li>
-                            <li data-target="#myCarousel2" data-slide-to="1"></li>
-                            <li data-target="#myCarousel2" data-slide-to="2"></li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
-            <!-- // Carousel END -->
+
     
         </div>
         <div class="span6">
@@ -198,41 +152,25 @@
                         <h4>Awesome Features</h4>
                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an <br/> <a href="">learn more</a></p>
                     </div>
-            
-                </div>
-            </div>
-            
-            <div class="widget widget-heading-simple widget-body-gray">
-                <div class="widget-body">
-                    <h5>News</h5>
-                    <div class="glyphicons circle_info">
+
+                    <div class="separator bottom"></div>
+                    <div class="glyphicons glyphicon-large magic group-column">
                         <i></i>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</p>
+                        <h4>Awesome Features</h4>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an <br/> <a href="">learn more</a></p>
                     </div>
+
+                    <div class="separator bottom"></div>
+                    <div class="glyphicons glyphicon-large magic group-column">
+                        <i></i>
+                        <h4>Awesome Features</h4>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an <br/> <a href="">learn more</a></p>
+                    </div>
+            
                 </div>
             </div>
             
-            <!-- Widget -->
-            <div class="widget widget-heading-simple widget-body-gray">
-                    
-                <!-- Widget Heading -->
-                <div class="widget-head">
-                    <h4 class="heading glyphicons twitter"><i></i>Twitter feed</h4>
-                </div>
-                <!-- // Widget Heading END -->
-                
-                <div class="widget-body">
-                    <section class="twitter-feed">
-                        <div class="row-fluid">
-                            <div class="span12">
-                                <div class="tweet">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nunc lorem, rutrum non porta. <span class="label label-inverse">01/11/2012</span></div>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                    </section>
-                </div>
-            </div>
-            <!-- // Widget END -->
+
         
         </div>
     </div>

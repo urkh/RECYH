@@ -1,7 +1,8 @@
-from django.db import models
-from apps.front.autores.models import Autores
-from apps.front.opciones.models import Categorias
 from PIL import Image
+from django.db import models
+from apps.autores.models import Autores
+from apps.opciones.models import Categorias
+
 
 # Create your models here.
 

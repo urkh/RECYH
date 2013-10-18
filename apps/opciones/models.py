@@ -1,5 +1,6 @@
-from django.db import models
 from PIL import Image
+from django.db import models
+
 # Create your models here.
 
 class Areas(models.Model):
