@@ -3,8 +3,8 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.db.models import Count
 
-from apps.autores.models import Autores
-from apps.publicaciones.models import Publicaciones
+from apps.front.autores.models import Autores
+from apps.front.publicaciones.models import Publicaciones
 
 def autor(request, ids):
 
@@ -18,7 +18,8 @@ def autor(request, ids):
 
 
 
-def lista(request):
+def autores(request):
 
     autores = Autores.objects.annotate(cantPub=Count('autores'))
-    return render_to_response('listaAutores.html', {'autores': autores}, context_instance=RequestContext(request))
+    #return render_to_response('listaAutores.html', {'autores': autores}, context_instance=RequestContext(request))
+    return render_to_response('front/autores.html')

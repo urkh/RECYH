@@ -178,10 +178,12 @@ INSTALLED_APPS = (
     #'django_select2',
     'ui',
     'apps.admin.inicio',
+
     'apps.front.inicio',
-    #'apps.autores',
-    #'apps.publicaciones',
-    #'apps.opciones',
+    'apps.front.autores',
+    'apps.front.publicaciones',
+    'apps.front.revistas',
+    'apps.front.opciones',
 )
 
 #AUTO_RENDER_SELECT2_STATICS = False
