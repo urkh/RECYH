@@ -6,174 +6,60 @@
 {% block contenido %}
 
    
-<div class="container-960 innerT">
+<div class="container">
 
-    <h3 class="glyphicons circle_info margin-none"><i></i>Autores <span>mas destacados</span></h3>
+    <h3 class="glyphicons circle_info margin-none"><i></i>Autores</h3>
     <div class="separator bottom"></div>
 
     <div class="widget widget-heading-simple widget-body-gray">
-        <div class="widget-body"><p class="lead center margin-none">Highly Customizable. Optimized for Performance. Production Ready.</p></div>
+        <div class="widget-body">
+            <p class="lead center margin-none">Principales Autores</p>
+        </div>
     </div>
+
     
-    <!-- Row -->
-    <div class="row-fluid">
+    <div class="row">
     
-        <!-- Thumbnails -->
         <ul class="thumbnails">
         
-            <!-- Column -->
-            <li class="span4">
-            
-                <!-- Thumbnail -->
+        {% for dato in autores %}
+            <li class="span4 solidBottom">
                 <div class="thumbnail widget-thumbnail">
-                    <img data-src="holder.js/100%x200" alt="100%x200 Image Holder" />
+                    {% if dato.foto == "" %}
+                        <img src="{% static "admin/images/user-icon.jpg" %}"  width="116" height="200" alt="autor" />
+                    {% else %}
+                        <img src="/media/{{dato.foto}}" width="100" height="200" alt="autor" />
+                    {% endif %}
+
+                    
                     <div class="caption">
-                        <h4><a href="/autor">John Doe</a></h4>
-                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                        <h4>
+                            <a href="/autor/{{dato.id}}">{{dato.nombre | capfirst}} {{dato.apellido | capfirst}}</a>
+                        </h4>
+                        <p>{{dato.informacion}}</p>
                         
-                        <!-- Social Icons -->
-                        <a href="" class="glyphicons standard primary facebook"><i></i></a>
-                        <a href="" class="glyphicons standard twitter"><i></i></a>
-                        <a href="" class="glyphicons standard linked_in"><i></i></a>
+                        <a href="http://facebook.com/{{dato.facebook}}" class="glyphicons standard primary facebook">
+                            <i></i>
+                        </a>
+                        <a href="http://twitter.com/{{dato.twitter}}" class="glyphicons standard twitter">
+                            <i></i>
+                        </a>
+                        <a href="http://linkedin.com/{{dato.linkedln}}" class="glyphicons standard linked_in">
+                            <i></i>
+                        </a>
                         <div class="clearfix"></div>
-                        <!-- // Social Icons END -->
                     </div>
                 </div>
-                <!-- // Thumbnail END -->
-                
             </li>
-            <!-- // Column END -->
+
             
-            <!-- Column -->
-            <li class="span4">
-            
-                <!-- Thumbnail -->
-                <div class="thumbnail widget-thumbnail">
-                    <img data-src="holder.js/100%x200" alt="100%x200 Image Holder" />
-                    <div class="caption">
-                        <h4>Jane Doe</h4>
-                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                        
-                        <!-- Social Icons -->
-                        <a href="" class="glyphicons standard primary facebook"><i></i></a>
-                        <a href="" class="glyphicons standard twitter"><i></i></a>
-                        <a href="" class="glyphicons standard linked_in"><i></i></a>
-                        <div class="clearfix"></div>
-                        <!-- // Social Icons END -->
-                    </div>
-                </div>
-                <!-- // Thumbnail END -->
-                
-            </li>
-            <!-- // Column END -->
-            
-            <!-- Column -->
-            <li class="span4">
-            
-                <!-- Thumbnail -->
-                <div class="thumbnail widget-thumbnail">
-                    <img data-src="holder.js/100%x200" alt="100%x200 Image Holder" />
-                    <div class="caption">
-                        <h4>John Doe</h4>
-                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                        
-                        <!-- Social Icons -->
-                        <a href="" class="glyphicons standard primary facebook"><i></i></a>
-                        <a href="" class="glyphicons standard twitter"><i></i></a>
-                        <a href="" class="glyphicons standard linked_in"><i></i></a>
-                        <div class="clearfix"></div>
-                        <!-- // Social Icons END -->
-                    </div>
-                </div>
-                <!-- // Thumbnail END -->
-                
-            </li>
-            <!-- // Column END -->
+        {% endfor %}
             
         </ul>
-        <!-- // Thumbnails END -->
         
     </div>
-    <!-- // Row END -->
-
-    <div class="row-fluid">
-        <div class="span6">
-        
-            <div class="widget widget-heading-simple widget-body-white">
-                <div class="widget-body">
-                    <div class="innerL">
-                        <div class="separator bottom"></div>
-                        <div class="glyphicons glyphicon-large shield">
-                            <i></i>
-                            <h4>We Build Trusted Websites</h4>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an <br/> <a href="">learn more</a></p>
-                        </div>
-                        <div class="separator bottom"></div>
-                        <div class="glyphicons glyphicon-large group">
-                            <i></i>
-                            <h4>User Friendly Design</h4>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an <br/> <a href="">learn more</a></p>
-                        </div>
 
 
-                        <div class="separator bottom"></div>
-                        <div class="glyphicons glyphicon-large shield">
-                            <i></i>
-                            <h4>We Build Trusted Websites</h4>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an <br/> <a href="">learn more</a></p>
-                        </div>
-                        <div class="separator bottom"></div>
-                        <div class="glyphicons glyphicon-large group">
-                            <i></i>
-                            <h4>User Friendly Design</h4>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an <br/> <a href="">learn more</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-    
-        </div>
-        <div class="span6">
-        
-            <div class="widget widget-heading-simple widget-body-white">
-                <div class="widget-body">
-                    
-                    <div class="separator bottom"></div>
-                    <div class="glyphicons glyphicon-large iphone">
-                        <i></i>
-                        <h4>Mobile First Apps</h4>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an <br/> <a href="">learn more</a></p>
-                    </div>
-                
-                    <div class="separator bottom"></div>
-                    <div class="glyphicons glyphicon-large magic group-column">
-                        <i></i>
-                        <h4>Awesome Features</h4>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an <br/> <a href="">learn more</a></p>
-                    </div>
-
-                    <div class="separator bottom"></div>
-                    <div class="glyphicons glyphicon-large magic group-column">
-                        <i></i>
-                        <h4>Awesome Features</h4>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an <br/> <a href="">learn more</a></p>
-                    </div>
-
-                    <div class="separator bottom"></div>
-                    <div class="glyphicons glyphicon-large magic group-column">
-                        <i></i>
-                        <h4>Awesome Features</h4>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an <br/> <a href="">learn more</a></p>
-                    </div>
-            
-                </div>
-            </div>
-            
-
-        
-        </div>
-    </div>
 
 </div>  
 

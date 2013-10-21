@@ -3,6 +3,35 @@
 
 {% block titulo %} Administracion - Caminos y Horizontes {% endblock %}
 
+
+{% block static_css %}
+
+	<!-- Easy-pie Plugin -->
+	<link href="{% static "admin/plugins/charts/easy-pie/jquery.easy-pie-chart.css" %}" rel="stylesheet" />
+
+{% endblock %}
+
+
+{% block static_js %}
+
+	<!-- Easy-pie Plugin -->
+	<script src="{% static "admin/plugins/charts/easy-pie/jquery.easy-pie-chart.js" %}"></script>
+	
+	<!-- Sparkline Charts Plugin -->
+	<script src="{% static "admin/plugins/charts/sparkline/jquery.sparkline.min.js" %}"></script>
+
+	<!--  Flot Charts Plugin -->
+	<script src="{% static "admin/plugins/charts/flot/jquery.flot.js" %}"></script>
+	<script src="{% static "admin/plugins/charts/flot/jquery.flot.pie.js" %}"></script>
+	<script src="{% static "admin/plugins/charts/flot/jquery.flot.tooltip.js" %}"></script>
+	<script src="{% static "admin/plugins/charts/flot/jquery.flot.selection.js" %}"></script>
+	<script src="{% static "admin/plugins/charts/flot/jquery.flot.resize.js" %}"></script>
+	<script src="{% static "admin/plugins/charts/flot/jquery.flot.orderBars.js" %}"></script>
+	<!-- Charts Helper Demo Script -->
+	<script src="{% static "admin/plugins/theme/scripts/demo/charts.helper.js" %}"></script>
+
+{% endblock %}
+
 {% block contenido %}
 
 

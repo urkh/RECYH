@@ -48,9 +48,6 @@
 	<!-- Gritter Notifications Plugin -->
 	<link href="{% static "admin/plugins/notifications/Gritter/css/jquery.gritter.css" %}" rel="stylesheet" />
 	
-	<!-- Easy-pie Plugin -->
-	<link href="{% static "admin/plugins/charts/easy-pie/jquery.easy-pie-chart.css" %}" rel="stylesheet" />
-
 	<!-- Google Code Prettify Plugin -->
 	<link href="{% static "admin/plugins/other/google-code-prettify/prettify.css" %}" rel="stylesheet" />
 
@@ -59,6 +56,11 @@
 
 	<!-- Bootstrap Image Gallery -->
 	<link href="{% static "admin/plugins/bootstrap/extend/bootstrap-image-gallery/css/bootstrap-image-gallery.min.css" %}" rel="stylesheet" />
+
+
+
+
+	{% block static_css %}{% endblock %}
 	
 	<!-- Main Theme Stylesheet :: CSS -->
 	<link href="{% static "admin/css/style-default.css" %}" rel="stylesheet" type="text/css" />
@@ -72,21 +74,20 @@
 		<!-- Main Container Fluid -->
 	<div class="container-fluid fluid menu-left">
 		
-				<!-- Sidebar menu & content wrapper -->
 		<div id="wrapper">
 		
 		<!-- Sidebar Menu -->
 		<div id="menu" class="hidden-phone hidden-print">
 		
 			<!-- Brand -->
-			<a href="index.html?lang=en&amp;layout_type=fluid&amp;menu_position=menu-left&amp;style=style-default" class="appbrand">Quick Admin</a>
+			<a href="/admin" class="appbrand">CyH</a>
 		
 			<!-- Scrollable menu wrapper with Maximum height -->
 			<div class="slim-scroll" data-scroll-height="800px">
 			
 			<!-- Sidebar Profile -->
 			<span class="profile center">
-				<a href="my_account_advanced.html?lang=en&amp;layout_type=fluid&amp;menu_position=menu-left&amp;style=style-default"><img data-src="holder.js/36x36/white" alt="Avatar" /></a>
+				<a href="#"><img data-src="holder.js/36x36/white" alt="Avatar" /></a>
 			</span>
 			<!-- // Sidebar Profile END -->
 			
@@ -94,16 +95,31 @@
 			<ul>
 			
 								
-								<li class="glyphicons user"><a href="my_account_advanced.html?lang=en&amp;layout_type=fluid&amp;menu_position=menu-left&amp;style=style-default"><i></i><span>My Account</span></a></li>
-				<li class="glyphicons history"><a href="timeline.html?lang=en&amp;layout_type=fluid&amp;menu_position=menu-left&amp;style=style-default"><i></i><span>Timeline</span></a></li>
-				<li class="glyphicons picture"><a href="gallery.html?lang=en&amp;layout_type=fluid&amp;menu_position=menu-left&amp;style=style-default"><i></i><span>Photo Gallery</span></a></li>
+				<li class="glyphicons user">
+					<a href="/admin/autores/"><i></i>
+						<span>Autores</span>
+					</a>
+				</li>
+				<li class="glyphicons history">
+					<a href=""><i></i>
+						<span>Articulos</span>
+					</a>
+				</li>
+				<li class="glyphicons picture">
+					<a href=""><i></i>
+						<span>Revistas</span>
+					</a>
+				</li>
+				<li class="glyphicons picture">
+					<a href=""><i></i>
+						<span>Opciones</span>
+					</a>
+				</li>
 												
 			</ul>
 			<div class="clearfix"></div>
-			<!-- // Regular Size Menu END -->
 			
 			</div>
-			<!-- // Scrollable Menu wrapper with Maximum Height END -->
 			
 		</div>
 		<!-- // Sidebar Menu END -->
@@ -202,8 +218,9 @@
 						<li class="dropdown submenu">
 							<a data-toggle="dropdown" class="dropdown-toggle glyphicons user"><i></i>Account</a>
 							<ul class="dropdown-menu submenu-show submenu-hide pull-right">
-								<li class=""><a href="my_account_advanced.html?lang=en&amp;layout_type=fluid&amp;menu_position=menu-left&amp;style=style-default">Advanced profile</a></li>
-								<li class=""><a href="my_account.html?lang=en&amp;layout_type=fluid&amp;menu_position=menu-left&amp;style=style-default">My Account</a></li>
+								<li class="">
+									<a href="my_account_advanced.html?lang=en&amp;layout_type=fluid&amp;menu_position=menu-left&amp;style=style-default">Advanced profile</a></li>
+								<li class=""><a href="my_account.html?lang=en&amp;layout_type=fluid&amp;menu_position=menu-left&amp;style=style-default">Autores</a></li>
 								<li><a href="login.html?lang=en&amp;layout_type=fluid&amp;menu_position=menu-left&amp;style=style-default"><i></i>Login</a></li>
 								<li><a href="signup.html?lang=en&amp;layout_type=fluid&amp;menu_position=menu-left&amp;style=style-default"><i></i>Register</a></li>
 							</ul>
@@ -395,7 +412,7 @@
 	<!-- // Modal Gallery END -->
 	
 	<!-- JQuery -->
-	<script src="{% static "common/jquery-2.0.3.min.js" %}"></script>
+	<script src="{% static "common/jquery-1.10.2.min.js" %}"></script>
 	<script src="{% static "common/jquery-migrate-1.2.1.min.js" %}"></script>
 	
 	<!-- Code Beautify -->
@@ -486,11 +503,7 @@
 	<!-- Twitter Feed -->
 	<script src="{% static "admin/plugins/theme/scripts/demo/twitter.js" %}"></script>
 	
-	<!-- Easy-pie Plugin -->
-	<script src="{% static "admin/plugins/charts/easy-pie/jquery.easy-pie-chart.js" %}"></script>
-	
-	<!-- Sparkline Charts Plugin -->
-	<script src="{% static "admin/plugins/charts/sparkline/jquery.sparkline.min.js" %}"></script>
+
 	
 	<!-- Ba-Resize Plugin -->
 	<script src="{% static "admin/plugins/other/jquery.ba-resize.js" %}"></script>
@@ -502,16 +515,11 @@
 	<!-- Google JSAPI -->
 	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 		
-	<!--  Flot Charts Plugin -->
-	<script src="{% static "admin/plugins/charts/flot/jquery.flot.js" %}"></script>
-	<script src="{% static "admin/plugins/charts/flot/jquery.flot.pie.js" %}"></script>
-	<script src="{% static "admin/plugins/charts/flot/jquery.flot.tooltip.js" %}"></script>
-	<script src="{% static "admin/plugins/charts/flot/jquery.flot.selection.js" %}"></script>
-	<script src="{% static "admin/plugins/charts/flot/jquery.flot.resize.js" %}"></script>
-	<script src="{% static "admin/plugins/charts/flot/jquery.flot.orderBars.js" %}"></script>
+
 	
-	<!-- Charts Helper Demo Script -->
-	<script src="{% static "admin/plugins/theme/scripts/demo/charts.helper.js" %}"></script>
+	
+
+	{% block static_js %}{% endblock %}
 	
 	
 	<!-- Bootstrap Image Gallery -->

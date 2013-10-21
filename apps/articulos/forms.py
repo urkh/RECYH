@@ -1,8 +1,8 @@
 from django.forms import ModelForm
-from suit.widgets import *
+from suit.widgets import  SuitDateWidget, EnclosedInput
 from suit_ckeditor.widgets import CKEditorWidget
-from django_select2 import *
-from .models import Publicaciones
+from django_select2 import AutoModelSelect2Field, AutoModelSelect2MultipleField, Select2MultipleWidget, AutoHeavySelect2Widget
+from apps.articulos.models import Articulos
 from apps.autores.models import Autores
 from apps.opciones.models import Categorias
 
@@ -21,7 +21,7 @@ class AutoresSelect(AutoModelSelect2MultipleField):
 
 
 
-class FormPublicaciones(ModelForm):
+class FormArticulos(ModelForm):
     autores = AutoresSelect(
         label = 'Autores',
         widget = Select2MultipleWidget(select2_options={'width': '250px'}),
@@ -35,7 +35,7 @@ class FormPublicaciones(ModelForm):
     
     class Meta:
 
-        model = Publicaciones
+        model = Articulos
 
 
 
@@ -73,8 +73,8 @@ class FormPublicaciones(ModelForm):
 
 
         widgets = {
-            'fechaReg': SuitDateWidget(),
-            'fechaPub': SuitDateWidget(),
+            'fecha_reg': SuitDateWidget(),
+            'fecha_pub': SuitDateWidget(),
             'numero': EnclosedInput(append='icon-list', attrs={'class': 'input-small'}),
             'resumen': CKEditorWidget(editor_options=config2),
 

@@ -8,7 +8,7 @@ class Areas(models.Model):
         verbose_name_plural='Areas'
 
     nombre = models.CharField(max_length=50)
-    foto = models.ImageField(upload_to='areas', blank=True, null=True)
+    foto = models.ImageField(upload_to='img/areas', blank=True, null=True)
 
     def __unicode__(self):
         return self.nombre

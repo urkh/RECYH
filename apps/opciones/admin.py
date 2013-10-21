@@ -1,8 +1,6 @@
 from django.contrib import admin
-from .models import *
-from .forms import *
-
-
+from apps.opciones.models import Categorias, Areas, LineasInv, Profesiones, Suscripciones, GradosAc
+from apps.opciones.forms import *
 
 class AdminAreas(admin.ModelAdmin):
     form = FormAreas
@@ -12,14 +10,14 @@ admin.site.register(Areas, AdminAreas)
 
 
 
-
 class AdminCategorias(admin.ModelAdmin):
 
     form = FormCategorias
-    #raw_id_fields = ('area',)
+    raw_id_fields = ('area',)
     list_display = ('nombre', 'area')
     list_filter = ('nombre',)
     search_fields = ('nombre',)
+
 
     """
     fieldsets = [

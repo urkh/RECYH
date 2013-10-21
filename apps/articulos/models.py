@@ -7,36 +7,32 @@ from apps.opciones.models import Categorias
 # Create your models here.
 
 
-class Publicaciones(models.Model):
+class Articulos(models.Model):
 
     class Meta:
-        db_table='publicaciones'
-        verbose_name_plural='Publicaciones'
-
+        verbose_name_plural='Articulos'
 
     categoria = models.ForeignKey(Categorias)
-    autores = models.ManyToManyField(Autores, related_name='autores')
+    autor = models.ForeignKey(Autores)
     titulo = models.CharField(max_length=100)
-    fechaReg = models.DateField('Fecha de Registro')
-    fechaPub = models.DateField('Fecha de Publicacion')
+    fecha_pub = models.DateField('Fecha de Publicacion')
     informacion = models.TextField()
-    numero = models.IntegerField('Numero de Publicacion')
     resumen = models.TextField()
     contenido = models.TextField()
     lecturas = models.IntegerField(blank=True, null=True)
-    foto = models.ImageField(upload_to='publicaciones', blank=True, null=True)
+    foto = models.ImageField(upload_to='img/articulos', blank=True, null=True)
 
     def __unicode__(self):
         return self.titulo
 
-    def getAutores(self):
-        #autoress = autores.nombre + autores.apellido
-        return ', '.join([autores.nombre for autores in self.autores.all()])
-        #return '%s'%(obj.autores.nombre)
+    #def getAutores(self):
+    #autoress = autores.nombre + autores.apellido
+    #return ', '.join([autores.nombre for autores in self.autores.all()])
+    #return '%s'%(obj.autores.nombre)
 
 
-    getAutores.short_description = 'Autores'
-    getAutores.admin_order_field = 'autores__cedula'
+    #getAutores.short_description = 'Autores'
+    #getAutores.admin_order_field = 'autores__cedula'
 
 
 
@@ -45,12 +41,11 @@ class Publicaciones(models.Model):
 class Comentarios(models.Model):
 
     class Meta:
-        db_table='comentarios_pub'
         verbose_name_plural='Comentarios'
 
-
-    publicacion = models.ForeignKey(Publicaciones)
-    comentario = models.TextField()
+    articulo = models.ForeignKey(Articulos)
+    nombre = models.CharField(max_length=20)
+    comentario = models.CharField(max_length=200)
     fecha = models.DateField()
 
     def __unicode__(self):

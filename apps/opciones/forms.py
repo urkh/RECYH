@@ -1,7 +1,7 @@
 from django import forms
-from django_select2 import *
-from suit.widgets import *
-from .models import Areas, Categorias
+from django_select2 import AutoModelSelect2Field
+from suit.widgets import EnclosedInput
+from apps.opciones.models import Areas, Categorias
 
 
 class AreasSelect(AutoModelSelect2Field):

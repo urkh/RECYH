@@ -1,0 +1,73 @@
+{% extends 'admin/base.html' %}
+{% load staticfiles %}
+
+
+	{% block static_css %}
+
+
+	<link href="{% static "admin/plugins/tables/DataTables/media/css/DT_bootstrap.css" %}" rel="stylesheet" />
+	<link href="{% static "admin/plugins/tables/DataTables/extras/TableTools/media/css/TableTools.css" %}" rel="stylesheet" />
+	<link href="{% static "admin/plugins/tables/DataTables/extras/ColVis/media/css/ColVis.css" %}" rel="stylesheet" />
+
+	{% endblock %}
+
+
+	{% block static_js %}
+
+	<script src="{% static "admin/plugins/tables/DataTables/media/js/jquery.dataTables.min.js" %}"></script>
+	<script src="{% static "admin/plugins/tables/DataTables/extras/TableTools/media/js/TableTools.min.js" %}"></script>
+	<script src="{% static "admin/plugins/tables/DataTables/extras/ColVis/media/js/ColVis.min.js" %}"></script>
+	<script src="{% static "admin/plugins/tables/DataTables/media/js/DT_bootstrap.js" %}"></script>
+	<script src="{% static "js/autores.js" %}"></script>
+	{% endblock %}
+
+
+
+{% block contenido %}
+
+
+
+<h3>Lista de Autores</h3>
+<div class="innerLR">
+
+	<div class="widget widget-heading-simple widget-body-gray">
+		<div class="widget-body">
+		
+			<table class="dynamicTable tableTools table table-striped table-bordered table-condensed table-white">
+			
+				<thead>
+					<tr>
+						<th>Cedula</th>
+						<th>Nombre</th>
+						<th>Apellido</th>
+						<th>Telefono</th>
+						<th>Correo</th>
+					</tr>
+				</thead>
+				
+				<tbody>
+				{% for dato in autores %}
+					<tr class="gradeX">
+						<td class="center"><a href="autor/{{dato.id}}">{{dato.cedula}}</a></td>
+						<td>{{dato.nombre}}</td>
+						<td>{{dato.apellido}}</td>
+						<td>{{dato.telefono}}</td>
+						<td>{{dato.correo}}</td>
+						
+					</tr>
+				{% endfor %}									
+				</tbody>
+				
+			</table>
+			
+		</div>
+	</div>
+
+	
+	
+</div>	
+
+
+
+
+{% endblock %}

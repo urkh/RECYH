@@ -1,6 +1,6 @@
 from django import forms
 from django_select2 import *
-from .models import Autores
+from apps.autores.models import Autores
 from apps.opciones.models import GradosAc, Profesiones, LineasInv
 from suit.widgets import *
 from suit_ckeditor.widgets import CKEditorWidget
@@ -48,11 +48,12 @@ class FormAutores(forms.ModelForm):
         widgets = {
             'informacion': CKEditorWidget(editor_options=config),
             'sexo': Select2Widget(select2_options={'width':'200px'}),
-            'fechaNac': SuitDateWidget(),
-            'fechaReg': SuitDateWidget(),
+            'fecha_nac': SuitDateWidget(),
+            'fecha_reg': SuitDateWidget(),
             'telefono': EnclosedInput(append='icon-signal'),
             'twitter': EnclosedInput(prepend='@'),
             'facebook': EnclosedInput(prepend='icon-thumbs-up'),
+            'linkedin': EnclosedInput(prepend='icon-thumbs-up'),
             'correo': EnclosedInput(append='icon-envelope'),
         }
     

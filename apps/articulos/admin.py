@@ -1,29 +1,32 @@
-from apps.publicaciones.models import Publicaciones, Comentarios
+from apps.articulos.models import Articulos, Comentarios
 from apps.autores.models import Autores
-from apps.publicaciones.forms import FormPublicaciones
+from apps.articulos.forms import FormArticulos
 
 from django.contrib import admin
 
-class AdminPublicaciones(admin.ModelAdmin):
+class AdminArticulos(admin.ModelAdmin):
     
-    form = FormPublicaciones
-    list_display = ('categoria', 'titulo', 'fechaPub', 'lecturas', 'getAutores')
-    list_filter = ('categoria__nombre','numero')
-    search_fields = ('categoria__nombre', 'numero')
-    date_hierarchy = 'fechaPub'
+    #form = FormArticulos
+    list_display = ('categoria', 'titulo', 'fecha_pub')
+    list_filter = ('categoria__nombre',)
+    search_fields = ('categoria__nombre',)
+    date_hierarchy = 'fecha_pub'
     #exclude = ('lecturas',)
     fieldsets = [
-        (None, {'fields':['categoria', 'autores', 'fechaReg', 'informacion']}),
-        ('Datos de la publicacion', {'fields': ['titulo', 'fechaPub', 'resumen', 'numero', 'foto', 'lecturas']}),
-        ('Contenido', {'fields':['contenido', ]})
+        ('Categoria', {'classes': ('suit-tab suit-tab-categoria', ), 'fields':['categoria', 'autor', 'informacion']}),
+        ('Datos de la publicacion', {'classes': ('suit-tab suit-tab-datos',), 'fields': ['titulo', 'fecha_pub', 'resumen', 'foto', 'lecturas']}),
+        ('Contenido', {'classes':('suit-tab suit-tab-contenido',), 'fields':['contenido', ]})
     
     ]
+
+    suit_form_tabs = (('categoria', 'Informacion'), ('datos', 'Datos'), ('contenido', 'Contenido'))
+
 
 
 
 class AdminComentarios(admin.ModelAdmin):
-    list_display = ('publicacion', 'fecha')
+    list_display = ('articulo', 'fecha')
 
 
-admin.site.register(Publicaciones, AdminPublicaciones)
+admin.site.register(Articulos, AdminArticulos)
 admin.site.register(Comentarios, AdminComentarios)
